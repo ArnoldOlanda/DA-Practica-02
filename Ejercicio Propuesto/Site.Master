@@ -1,0 +1,84 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Artefactos.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="es">
+     <script languaje="C#" runat="server">
+         void Pulsado(Object sender, EventArgs args)
+
+         {
+             //Evaluamos el valor de la lista para mostrar los datos
+             switch (lista.Value) {
+                 case "Refrigerador":
+                     Codigo.InnerText = "Codigo: 0001";
+                     descripcion.InnerText = "Descripcion: Capacidad de 15 kilos ";
+                     Marca.InnerText = "Marca: Samsung";
+                     precio.InnerText = "Precio: S/. 1000";
+                     //Dependiendo el valor de la lista se mostrara una imagen diferente
+                     imagen.Src = lista.Value.ToString() + ".jpg";
+                     break;
+
+                 case "MicroOndas":
+                     Codigo.InnerText = "Codigo: 0002";
+                     descripcion.InnerText = "Descripcion: 5 modos de calentamiento";
+                     Marca.InnerText = "Marca: LG";
+                     precio.InnerText = "Precio: S/. 400";
+                     //Dependiendo el valor de la lista se mostrara una imagen diferente
+                     imagen.Src = lista.Value.ToString() + ".jpg";
+                     break;
+
+                 case "Lavadora":
+                     Codigo.InnerText = "Codigo: 0003";
+                     descripcion.InnerText = "Descripcion: Capacidad de 20 kilos";
+                     Marca.InnerText = "Marca: LG";
+                     precio.InnerText = "Precio: S/. 1500";
+                     //Dependiendo el valor de la lista se mostrara una imagen diferente
+                     imagen.Src = lista.Value.ToString() + ".jpg";
+                     break;
+
+                 case "Secadora":
+                     Codigo.InnerText = "Codigo: 0004";
+                     descripcion.InnerText = "Descripcion: Tres velocidades";
+                     Marca.InnerText = "Marca: daewo";
+                     precio.InnerText = "Precio: S/. 1200";
+                     //Dependiendo el valor de la lista se mostrara una imagen diferente
+                     imagen.Src = lista.Value.ToString() + ".jpg";
+                     break;
+             }
+         }
+     </script>
+<head runat="server">
+    <title><%: Page.Title %> - Script ASP.NET</title>
+    <link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="WebForm" method="post" runat="server">
+        <div class="container">
+            <div class="left-panel">
+                <h1>Seleccionar Artefacto</h1>
+                <div class="top-container">
+                <select id="lista" runat="server">
+                 <option selected>Refrigerador</option>
+                 <option>MicroOndas</option>
+                 <option>Lavadora</option>
+                 <option>Secadora</option>
+                </select>
+                <input type="button" id="boton" runat="server" value="Seleccionar"
+                onserverclick="Pulsado" />
+                </div>
+
+                <div class="bottom-container">
+                    <div id="Codigo" class="grid-item" runat="server">-</div>
+                    
+                    <div id="descripcion" class="grid-item" runat="server">-</div>
+                    <div id="Marca" class="grid-item" runat="server">-</div>
+                    <div id="precio" class="grid-item" runat="server">-</div>
+                    
+                </div>
+            </div>
+            <div class="right-panel">
+                <img id="imagen" class="img" runat="server"/>
+            </div>
+        </div>
+ </form>
+</body>
+</html>
